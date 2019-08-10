@@ -27,7 +27,7 @@
 		</div>
 	</div>
 
-	<div class="parallax-container">
+	<div class="parallax-container valign-center">
 		<div class="section">
 			<div class="row center white-text">
 				<br><br>
