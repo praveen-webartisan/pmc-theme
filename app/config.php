@@ -11,8 +11,22 @@ define('DB', array(
 	"database" => "test",
 ));
 
+define('THEMES', array(
+	"blue" => array("bg" => "blue", "text" => "blue-text"),
+	"indigo" => array("bg" => "indigo darken-4", "text" => "text-darken-4 indigo-text"),
+	"pink" => array("bg" => "pink darken-1", "text" => "text-darken-1 pink-text"),
+	"red" => array("bg" => "red", "text" => "red-text"),
+	"green" => array("bg" => "green", "text" => "green-text"),
+	"purple" => array("bg" => "purple", "text" => "purple-text"),
+	"cyan" => array("bg" => "cyan", "text" => "cyan-text"),
+	"teal" => array("bg" => "teal", "text" => "teal-text"),
+	"brown" => array("bg" => "brown", "text" => "brown-text"),
+	"grey" => array("bg" => "grey darken-2", "text" => "text-darken-2 grey-text"),
+));
+
 # Use color names from: https://materializecss.com/color.html#palette
-define('APP_THEME', cookie::has('theme') ? cookie::get('theme') : 'blue');
+define('APP_THEME', cookie::has('theme') ? THEMES[cookie::get('theme')]["bg"] : 'blue');
+define('APP_TEXT_COLOR', cookie::has('theme') ? THEMES[cookie::get('theme')]["text"] : 'blue');
 
 if(session::has('alert')){
 	define('ALERT', session::get('alert'));

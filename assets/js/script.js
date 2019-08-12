@@ -4,6 +4,13 @@ document.addEventListener('DOMContentLoaded', function(){
 
 function initComponents()
 {
+	// Initialize mobile menu
+	var sideNav = document.querySelectorAll('.sidenav');
+
+	if(sideNav.length > 0){
+		var sideNavInstances = M.Sidenav.init(sideNav, {});
+	}
+
 	// Initialize parallaxes
 	var parallaxElements = document.querySelectorAll('.parallax');
 
@@ -41,11 +48,17 @@ function initComponents()
 		});
 	}
 
-	var btnShowThemes = document.getElementById("btnShowThemes");
-	btnShowThemes.addEventListener('click', function(e){
-		e.preventDefault();
-		showModal('modalChooseTheme');
-	});
+	var buttons = document.querySelectorAll('#btnShowThemes');
+
+	if(buttons.length > 0){
+
+		buttons.forEach(function(element, index){
+			element.addEventListener('click', function(e){
+				e.preventDefault();
+				showModal('modalChooseTheme');
+			});
+		});
+	}
 
 	var btnChangeTheme = document.getElementById("btnChangeTheme");
 	btnChangeTheme.addEventListener('click', function(e){

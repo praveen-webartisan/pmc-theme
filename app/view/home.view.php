@@ -12,13 +12,9 @@
 		<div class="modal-content">
 			<h4>Choose Theme</h4>
 			<form id="frmChooseTheme" action="<?=appUrl('/set-theme');?>" method="POST">
-				<?=includeView('layout.form.radioButton', ["value" => "blue", "name" => "theme", "text" => "Blue", "textColor" => "blue", "checked" => APP_THEME == "blue"]);?>
-				<?=includeView('layout.form.radioButton', ["value" => "red", "name" => "theme", "text" => "Red", "textColor" => "red", "checked" => APP_THEME == "red"]);?>
-				<?=includeView('layout.form.radioButton', ["value" => "green", "name" => "theme", "text" => "Green", "textColor" => "green", "checked" => APP_THEME == "green"]);?>
-				<?=includeView('layout.form.radioButton', ["value" => "purple", "name" => "theme", "text" => "Purple", "textColor" => "purple", "checked" => APP_THEME == "purple"]);?>
-				<?=includeView('layout.form.radioButton', ["value" => "cyan", "name" => "theme", "text" => "Cyan", "textColor" => "cyan", "checked" => APP_THEME == "cyan"]);?>
-				<?=includeView('layout.form.radioButton', ["value" => "teal", "name" => "theme", "text" => "Teal", "textColor" => "teal", "checked" => APP_THEME == "teal"]);?>
-				<?=includeView('layout.form.radioButton', ["value" => "brown", "name" => "theme", "text" => "Brown", "textColor" => "brown", "checked" => APP_THEME == "brown"]);?>
+				<?php foreach(THEMES as $index => $theme): ?>
+					<?=includeView('layout.form.radioButton', ["value" => $index, "name" => "theme", "text" => ucwords($index), "textColor" => $theme["text"], "checked" => APP_THEME == $index]);?>
+				<?php endforeach;?>
 			</form>
 		</div>
 		<div class="modal-footer">
@@ -43,19 +39,19 @@
 		<div class="row margin-top-2">
 
 			<div class="col s12 m4 light center">
-				<i class="material-icons medium <?=APP_THEME;?>-text">3d_rotation</i>
+				<i class="material-icons medium <?=APP_TEXT_COLOR;?>">3d_rotation</i>
 				<h5 class="">Column 1</h5>
 				<p class="">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed consectetur est enim, nec ultricies eros tristique id. Etiam a ligula ultrices, aliquet ante ut, auctor odio. Nunc maximus iaculis erat sed fringilla. Integer hendrerit porttitor nibh, nec laoreet quam facilisis et. Donec commodo dolor et quam aliquet, nec convallis ex efficitur. Nullam ante neque, rutrum rutrum arcu quis, mattis finibus orci.</p>
 			</div>
 
 			<div class="col s12 m4 light center">
-				<i class="material-icons medium <?=APP_THEME;?>-text">ac_unit</i>
+				<i class="material-icons medium <?=APP_TEXT_COLOR;?>">ac_unit</i>
 				<h5 class="">Column 2</h5>
 				<p class="">Donec mattis ex viverra condimentum vestibulum. In mi purus, imperdiet in ultricies eget, faucibus ut diam. Proin pulvinar lorem vitae velit rutrum, quis convallis neque lobortis. Fusce sem justo, semper at gravida id, faucibus ut dolor. Mauris aliquet purus velit, eget dictum tellus facilisis eget. In imperdiet enim eu mauris ornare aliquet. Curabitur convallis dui turpis, eu aliquam justo viverra in. Nulla ac mi vehicula, finibus nisi non, faucibus lacus. Fusce vehicula vehicula tellus, sed malesuada libero dignissim at.</p>
 			</div>
 
 			<div class="col s12 m4 light center">
-				<i class="material-icons medium <?=APP_THEME;?>-text">airplay</i>
+				<i class="material-icons medium <?=APP_TEXT_COLOR;?>">airplay</i>
 				<h5 class="">Column 2</h5>
 				<p class="">Donec mattis ex viverra condimentum vestibulum. In mi purus, imperdiet in ultricies eget, faucibus ut diam. Proin pulvinar lorem vitae velit rutrum, quis convallis neque lobortis. Fusce sem justo, semper at gravida id, faucibus ut dolor. Mauris aliquet purus velit, eget dictum tellus facilisis eget. In imperdiet enim eu mauris ornare aliquet. Curabitur convallis dui turpis, eu aliquam justo viverra in. Nulla ac mi vehicula, finibus nisi non, faucibus lacus. Fusce vehicula vehicula tellus, sed malesuada libero dignissim at.</p>
 			</div>
