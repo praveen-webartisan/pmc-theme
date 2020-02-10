@@ -16,8 +16,9 @@ class Route
 
 	protected function currentUri()
 	{
+		$appDir 		=	$GLOBALS['appDir'];
 		$uri 			=	$_SERVER["REQUEST_URI"];
-		$uri 			=	substr($uri, strpos($uri, "/", strpos($uri, "/") + 1));
+		$uri 			=	substr($uri, strpos($uri, "/", strripos($appDir, "/") + 1));
 
 		if(strpos($uri, "?")){
 			$uri 		=	strrev(substr(strrev($uri), strpos(strrev($uri), "?") +1));

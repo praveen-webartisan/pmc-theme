@@ -44,7 +44,8 @@ function appUrl($path = null)
 
 function assetsUrl($path)
 {
-	return baseUrl() . "/assets/" . $path;
+	$baseUrl = baseUrl();
+	return $baseUrl . (strpos($baseUrl, "/") ? "/" : "") . "assets/" . $path;
 }
 
 function redirect($route = null)
