@@ -1,5 +1,35 @@
 document.addEventListener('DOMContentLoaded', function(){
 	initComponents();
+	toggleScrollTopBtn();
+});
+
+$(window).scroll(function(){
+	toggleScrollTopBtn();
+});
+
+$(document).on('click', '#btnScrollTop', function(e){
+	e.preventDefault();
+	$('body, html').animate({
+		scrollTop: 0
+	}, 500);
+});
+
+$(document).on('click', '.go-to-section', function(e){
+	e.preventDefault();
+	var section = $($(this).attr('href'));
+
+	if(typeof(section) != 'undefined' && section.length > 0){
+		scrollDoc(section[0]);
+	}
+});
+
+$(document).on('click', '#menuMobile > li > a, #nav-mobile > li > a', function(e){
+	e.preventDefault();
+	var element = $($(this).attr('href'));
+
+	if(typeof(element) != 'undefined' && element.length > 0){
+		scrollDoc(element[0]);
+	}
 });
 
 function initComponents()
@@ -65,6 +95,8 @@ function initComponents()
 		e.preventDefault();
 		submitThemeForm();
 	});
+
+	$('#preloader').delay(1000).fadeOut('slow');
 }
 
 function initModal(modalElement)
@@ -90,5 +122,5 @@ function submitThemeForm()
 function scrollDoc(element)
 {
 	var menu = document.getElementById('menuMain');
-	window.scrollTo(0, (element.offsetTop - menu.offsetHeight))
+	window.scrollTo({left: 0, top: (element.offsetTop - menu.offsetHeight), behavior: 'smooth'})
 }

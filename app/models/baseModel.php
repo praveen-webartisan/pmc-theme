@@ -14,8 +14,10 @@ class baseModel
 
 	protected function connect()
 	{
-		$this->conn = new mysqli(DB["host"], DB["user"], DB["password"]);
-		$this->selectDB(DB["database"]);
+		if(DB["enabled"]){
+			$this->conn = new mysqli(DB["host"], DB["user"], DB["password"]);
+			$this->selectDB(DB["database"]);
+		}
 	}
 
 	protected function selectDB($dbname)

@@ -5,6 +5,7 @@ define('APP_TITLE', 'PMC-Theme');
 define('CONTACT_FORM_TO', 'praveen.openit@gmail.com');
 
 define('DB', array(
+	"enabled" => false,
 	"host" => "localhost",
 	"user" => "root",
 	"password" => "letmein1!",

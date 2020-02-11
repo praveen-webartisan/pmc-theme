@@ -1,3 +1,23 @@
+<div class="preloader" id="preloader">
+	<div class="preloader-wrapper big active">
+		<div class="spinner-layer spinner-blue-only">
+			<div class="circle-clipper left">
+				<div class="circle"></div>
+			</div>
+			<div class="gap-patch">
+				<div class="circle"></div>
+			</div>
+			<div class="circle-clipper right">
+				<div class="circle"></div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<a class="btn-floating btn-large waves-effect waves-light btn-scroll-top <?=APP_THEME;?>" id="btnScrollTop" style="display: none;">
+	<i class="material-icons">keyboard_arrow_up</i>
+</a>
+
 <footer class="page-footer <?=APP_THEME;?>">
 	<div class="container">
 		<div class="row">
